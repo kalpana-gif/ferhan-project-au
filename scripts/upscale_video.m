@@ -39,7 +39,7 @@ int main(int argc, const char *argv[]) {
     if (!writer) fail(@"Could not create video writer", error);
 
     int averageBitRate = useH264
-      ? (outputWidth >= 3840 ? 42000000 : 18000000)
+      ? (outputWidth >= 3840 ? 42000000 : outputWidth >= 1920 ? 18000000 : 9000000)
       : (outputWidth >= 7000 ? 56000000 : 26000000);
     NSDictionary *compression = @{
       AVVideoAverageBitRateKey: @(averageBitRate),

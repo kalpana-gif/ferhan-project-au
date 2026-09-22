@@ -5,9 +5,34 @@ const clamp = (value, min, max) => Math.min(max, Math.max(min, value))
 export default function ConstructionScroll() {
   const sectionRef = useRef(null)
   const videoRef = useRef(null)
+  const [shouldLoad, setShouldLoad] = useState(false)
   const [isReady, setIsReady] = useState(false)
 
   useEffect(() => {
+    const section = sectionRef.current
+    if (!section) return undefined
+
+    if (!('IntersectionObserver' in window)) {
+      setShouldLoad(true)
+      return undefined
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return
+        setShouldLoad(true)
+        observer.disconnect()
+      },
+      { rootMargin: '200% 0px' },
+    )
+
+    observer.observe(section)
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    if (!shouldLoad) return undefined
+
     const section = sectionRef.current
     const video = videoRef.current
     if (!section || !video) return undefined
@@ -25,7 +50,7 @@ export default function ConstructionScroll() {
     const render = (timestamp) => {
       const delta = targetProgress - renderedProgress
       const elapsed = previousFrameTime ? Math.min(timestamp - previousFrameTime, 64) : 16.67
-      const easing = 1 - Math.exp(-elapsed / 125)
+      const easing = 1 - Math.exp(-elapsed / 80)
       previousFrameTime = timestamp
       renderedProgress = reducedMotion || Math.abs(delta) < 0.0005
         ? targetProgress
@@ -34,7 +59,7 @@ export default function ConstructionScroll() {
       if (Number.isFinite(video.duration) && video.duration > 0) {
         const targetTime = renderedProgress * Math.max(0, video.duration - 0.025)
         const frameDuration = 1 / 24
-        const canSeek = !video.seeking && timestamp - lastSeekTime >= 38
+        const canSeek = !video.seeking && timestamp - lastSeekTime >= 30
         if (canSeek && Math.abs(video.currentTime - targetTime) > frameDuration * 0.55) {
           video.currentTime = targetTime
           lastSeekTime = timestamp
@@ -51,6 +76,12 @@ export default function ConstructionScroll() {
     }
 
     const updateTarget = () => {
+      if (reducedMotion) {
+        targetProgress = 0
+        renderedProgress = 0
+        return
+      }
+
       targetProgress = clamp((window.scrollY - sectionTop) / scrollDistance, 0, 1)
 
       if (!isRunning) {
@@ -60,7 +91,7 @@ export default function ConstructionScroll() {
     }
 
     const measure = () => {
-      sectionTop = section.offsetTop
+      sectionTop = section.getBoundingClientRect().top + window.scrollY
       scrollDistance = Math.max(1, section.offsetHeight - window.innerHeight)
       updateTarget()
     }
@@ -79,6 +110,7 @@ export default function ConstructionScroll() {
     const resizeObserver = new ResizeObserver(measure)
     resizeObserver.observe(section)
 
+    video.load()
     if (video.readyState >= 1) handleMetadata()
     else measure()
 
@@ -90,7 +122,7 @@ export default function ConstructionScroll() {
       window.removeEventListener('resize', measure)
       resizeObserver.disconnect()
     }
-  }, [])
+  }, [shouldLoad])
 
   return (
     <section
@@ -102,16 +134,18 @@ export default function ConstructionScroll() {
         <video
           ref={videoRef}
           className="construction-scroll__video"
-          preload="auto"
+          preload={shouldLoad ? 'auto' : 'none'}
           muted
           playsInline
           disablePictureInPicture
           aria-hidden="true"
         >
-          <source src="/assets/modern-house-construction-enhanced-8k.mp4" type='video/mp4; codecs="hvc1"' media="(min-width: 1200px)" />
-          <source src="/assets/modern-house-construction-enhanced-4k.mp4" type='video/mp4; codecs="avc1.640033"' media="(min-width: 768px)" />
-          <source src="/assets/modern-house-construction-enhanced-1080.mp4" type='video/mp4; codecs="avc1.640033"' />
-          <source src="/assets/modern-house-construction.mp4" type="video/mp4" />
+          {shouldLoad && (
+            <>
+              <source src="/assets/construction-scroll-720-v1.mp4" type="video/mp4" media="(max-width: 767px)" />
+              <source src="/assets/construction-scroll-1080-v1.mp4" type="video/mp4" />
+            </>
+          )}
         </video>
 
         <p className="sr-only">Scrolling through this section controls a video showing a modern house being assembled from the ground up.</p>

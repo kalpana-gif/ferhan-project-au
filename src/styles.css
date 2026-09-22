@@ -141,7 +141,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .scroll-prompt span { font-size: 15px; line-height: .5; }
 
 /* Scroll-scrubbed construction film */
-.construction-scroll { background: #ffffff; border: 0; box-shadow: none; color: #111111; height: 650svh; outline: 0; position: relative; }
+.construction-scroll { background: #ffffff; border: 0; box-shadow: none; color: #111111; height: 360svh; outline: 0; position: relative; }
 .construction-scroll__stage { background: #ffffff; border: 0; box-shadow: none; height: 100svh; outline: 0; overflow: hidden; position: sticky; top: 0; }
 .construction-scroll__video { backface-visibility: hidden; border: 0; box-shadow: none; display: block; filter: brightness(1.12) saturate(1.14); height: 100%; image-rendering: auto; inset: 0; object-fit: cover; opacity: 0; outline: 0; position: absolute; transform: translateZ(0); transition: opacity .55s ease; width: 100%; will-change: opacity; }
 .construction-scroll.is-ready .construction-scroll__video { opacity: 1; }
@@ -364,7 +364,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   .scroll-expand-scene-content h2 { font-size: clamp(40px, 10vw, 64px); }
   .scroll-expand-scene-content > span { font-size: 13px; max-width: 335px; }
   .visual-stage { min-height: 620px; }
-  .construction-scroll { height: 540svh; }
+  .construction-scroll { height: 320svh; }
   .construction-scroll__video { object-position: 62% center; }
   .is-framed .visual-stage { height: calc(100% - 28px); margin: 14px 15px; }
   .caption { bottom: 113px; left: 28px; max-width: calc(100% - 56px); }
@@ -416,7 +416,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 @media (max-width: 540px) {
-  .construction-scroll { height: 500svh; }
+  .construction-scroll { height: 280svh; }
   .construction-scroll__video { height: 100%; inset: 0 auto 0 50%; max-width: none; min-width: 165vw; object-fit: contain; object-position: center; transform: translate3d(-50%, 0, 0); width: 165vw; }
   .scroll-expand-scene .scroll-expand-title { font-size: 48px !important; }
   .scroll-expand-scene-content h2 { font-size: 40px; }
@@ -459,4 +459,5 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 @media (prefers-reduced-motion: reduce) {
   :root { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+  .construction-scroll { height: 100svh; }
 }
