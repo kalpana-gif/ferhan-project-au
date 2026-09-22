@@ -1,0 +1,133 @@
+export const slides = [
+  {
+    id: 'home',
+    title: 'design matters',
+    eyebrow: 'Perth Architecture Studio',
+    description: 'Architecture & design studio based in Perth, Western Australia. Specialising in residential, multi-residential, and commercial architecture since 2007.',
+    image: '/assets/1-13.jpg',
+    action: 'Discover our work',
+    menu: 'Home',
+  },
+  {
+    id: 'residential-architecture',
+    title: 'Architectural Design',
+    eyebrow: 'Residential',
+    description: 'The most important material with which we design, is light.',
+    image: '/assets/slide_02-1600x1068.jpg',
+    action: 'Read more',
+    group: 'Services',
+  },
+  {
+    id: 'commercial-architecture',
+    title: 'Architectural Design',
+    eyebrow: 'Commercial',
+    description: 'Design is about a way of living, be it at home, in the workplace, relaxing, or entertaining.',
+    image: '/assets/1-New-Size-11.jpg',
+    action: 'Read more',
+    group: 'Services',
+  },
+  {
+    id: 'planning',
+    title: 'Planning Applications',
+    eyebrow: 'Residential',
+    description: 'Planning expertise that gives ambitious ideas a clear route from concept to consent.',
+    image: '/assets/6.-Planning-Archway-img-10.jpg',
+    action: 'Read more',
+    group: 'Services',
+  },
+  {
+    id: 'residential-interiors',
+    title: 'Interior Design',
+    eyebrow: 'Residential',
+    description: 'We aspire to create an interior experience that is both memorable, and timeless.',
+    image: '/assets/slide_05-1600x887.jpg',
+    action: 'Read more',
+    group: 'Services',
+  },
+  {
+    id: 'commercial-interiors',
+    title: 'Interior Design',
+    eyebrow: 'Commercial',
+    description: 'We focus on the experience of a space as much as its aesthetic.',
+    image: '/assets/1-New-Size-15.jpg',
+    action: 'Read more',
+    group: 'Services',
+  },
+  {
+    id: 'conservation',
+    title: 'Conservation & Heritage Design',
+    eyebrow: 'Residential',
+    description: 'Conservation architects transforming heritage properties for a new life.',
+    image: '/assets/slide_07-1600x1069.jpg',
+    action: 'Read more',
+    group: 'Services',
+  },
+  {
+    id: 'residential-build',
+    title: 'Create & Construct',
+    eyebrow: 'Residential',
+    description: 'We take the ordinary and elevate it to the extraordinary.',
+    image: '/assets/slide_08-1600x1068.jpg',
+    action: 'Read more',
+    group: 'Services',
+  },
+  {
+    id: 'commercial-build',
+    title: 'Create & Construct',
+    eyebrow: 'Commercial',
+    description: 'A seamless route from considered design to expertly delivered space.',
+    image: '/assets/6-New-Size.jpg',
+    action: 'Read more',
+    group: 'Services',
+  },
+  {
+    id: 'about',
+    title: 'Farhan Architects',
+    eyebrow: 'About',
+    description: 'Thoughtful architecture shaped around place, purpose and the people who inhabit it.',
+    image: '/assets/slide_10-810x1080.jpg',
+    action: 'About the studio',
+    group: 'About',
+  },
+  {
+    id: 'contact',
+    title: 'Contact',
+    eyebrow: 'Contact',
+    description: 'Contact us about your project, or find out more about our award-winning services.',
+    image: '/assets/gallery-forest-house.jpg',
+    action: 'Get in touch',
+    group: 'Contact',
+  },
+]
+
+export const serviceGroups = [
+  {
+    label: 'Architectural Design',
+    items: [
+      { label: 'Residential', slideId: 'residential-architecture' },
+      { label: 'Commercial', slideId: 'commercial-architecture' },
+    ],
+  },
+  { label: 'Planning Applications', items: [{ label: 'Residential', slideId: 'planning' }] },
+  {
+    label: 'Interior Design',
+    items: [
+      { label: 'Residential', slideId: 'residential-interiors' },
+      { label: 'Commercial', slideId: 'commercial-interiors' },
+    ],
+  },
+  { label: 'Conservation & Heritage Design', items: [{ label: 'Residential', slideId: 'conservation' }] },
+  {
+    label: 'Create & Construct',
+    items: [
+      { label: 'Residential', slideId: 'residential-build' },
+      { label: 'Commercial', slideId: 'commercial-build' },
+    ],
+  },
+]
+
+export const portfolioGroups = [
+  { label: 'Residential', slideId: 'residential-interiors' },
+  { label: 'Commercial', slideId: 'commercial-interiors' },
+  { label: 'Conservation & Heritage', slideId: 'conservation' },
+]
