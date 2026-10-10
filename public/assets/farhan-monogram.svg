@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88 88" role="img" aria-labelledby="title">
+  <title id="title">Farhan Architects monogram</title>
+  <rect width="88" height="88" rx="16" fill="#ffffff" />
+  <g transform="translate(17 20) scale(.84375)" fill="#111111">
+    <path d="M0 0h64v16H25v6h33v14H0Z" />
+    <path d="M0 40h25v16H0Z" />
+  </g>
+</svg>

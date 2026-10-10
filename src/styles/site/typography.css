@@ -1,0 +1,17 @@
+/* Descriptive copy uses the Architects Daughter studio accent across the site. */
+.caption-description,
+.scroll-expand-content > span,
+.scroll-expand-scene-content > span,
+.section-copy p,
+.gallery-note span,
+.about-content > p:not(.section-kicker),
+.team-caption,
+.team-card p,
+.contact-content > p:not(.section-kicker),
+.detail-dialog p:not(.dialog-eyebrow),
+.contact-dialog p:not(.dialog-eyebrow) {
+  font-family: 'Architects Daughter', cursive;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+

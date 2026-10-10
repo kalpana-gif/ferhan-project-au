@@ -1,0 +1,8 @@
+export { AboutSection } from './AboutSection'
+export { ContactSection } from './ContactSection'
+export { GallerySection } from './GallerySection'
+export { PortfolioSection } from './PortfolioSection'
+export { default as ScrollExpandIntro } from './ScrollExpandIntro'
+export { default as ScrollExpandScene } from './ScrollExpandScene'
+export { ServicesSection } from './ServicesSection'
+export { TeamSection } from './TeamSection'
