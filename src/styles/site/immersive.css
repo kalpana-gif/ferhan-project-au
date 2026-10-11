@@ -2,19 +2,17 @@
 .scroll-expand-hero { background: radial-gradient(circle at 55% 38%, #242424 0%, var(--canvas) 46%); height: calc(100svh * 2.29); min-height: 1230px; position: relative; }
 .scroll-expand-root { height: 100%; }
 .scroll-expand-hero .scroll-expand-stage { background: transparent; }
-.scroll-expand-hero .scroll-expand-frame { animation: hero-image-appear 1.2s ease-out .08s both; background: #121212; }
-.scroll-expand-hero .hero-tech-heading { animation: hero-title-appear 1.05s ease-out .27s both; }
+.scroll-expand-hero .scroll-expand-frame { animation: hero-image-appear 1.05s cubic-bezier(.22, 1, .36, 1) .16s both; background: #121212; transform-origin: center center; }
+.scroll-expand-hero .hero-tech-heading { animation: hero-title-appear .8s cubic-bezier(.22, 1, .36, 1) .42s both; transform-origin: center center; }
 @keyframes hero-image-appear {
-  0% { opacity: 0; transform: translate3d(0, 34px, 0) scale(.92); }
-  58% { opacity: 1; transform: translate3d(0, -9px, 0) scale(1.025); }
-  78% { transform: translate3d(0, 3px, 0) scale(.992); }
-  100% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+  0% { opacity: 0; transform: scale(.72); }
+  68% { opacity: 1; transform: scale(1.035); }
+  100% { opacity: 1; transform: scale(1); }
 }
 @keyframes hero-title-appear {
-  0% { opacity: 0; transform: translate3d(0, 30px, 0) scale(.94); }
-  62% { opacity: 1; transform: translate3d(0, -7px, 0) scale(1.025); }
-  82% { transform: translate3d(0, 2px, 0) scale(.995); }
-  100% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+  0% { opacity: 0; transform: scale(.84); }
+  75% { opacity: 1; transform: scale(1.025); }
+  100% { opacity: 1; transform: scale(1); }
 }
 .scroll-expand-hero .scroll-expand-media { object-position: center 55%; }
 .scroll-expand-hero .scroll-expand-scrim { background: linear-gradient(90deg, rgba(0,0,0,.68) 0%, rgba(0,0,0,.34) 43%, rgba(0,0,0,.07) 75%), linear-gradient(0deg, rgba(0,0,0,.68), transparent 50%) !important; }
@@ -86,4 +84,3 @@
 .construction-scroll__stage { background: #ffffff; border: 0; box-shadow: none; height: 100svh; outline: 0; overflow: hidden; position: sticky; top: 0; }
 .construction-scroll__video { backface-visibility: hidden; border: 0; box-shadow: none; display: block; height: 100%; image-rendering: auto; inset: 0; object-fit: cover; opacity: 0; outline: 0; position: absolute; transform: translateZ(0); transition: opacity .55s ease; width: 100%; will-change: opacity; }
 .construction-scroll.is-ready .construction-scroll__video { opacity: 1; }
-

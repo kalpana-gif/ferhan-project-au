@@ -45,8 +45,8 @@
 .service-gateway__intro h1,
 .service-gateway__message h1 { font-size: clamp(54px, 7.7vw, 112px); font-weight: 300; letter-spacing: -.078em; line-height: .92; margin: 0; }
 .service-gateway__intro h1 { align-items: center; display: flex; justify-content: center; margin: 0 auto; max-width: 760px; width: 100%; }
-.service-gateway__heading-lead { flex: 0 0 43%; min-width: 0; }
-.service-gateway__heading-accent { aspect-ratio: 3.45; flex: 0 0 57%; min-width: 0; position: relative; }
+.service-gateway__heading-lead { flex: 0 0 46%; min-width: 0; }
+.service-gateway__heading-accent { aspect-ratio: 3.45; flex: 0 0 54%; min-width: 0; position: relative; top: clamp(3px, .35vw, 7px); }
 .service-gateway__heading-accent-fallback { display: none; }
 .service-gateway__stroke-heading { font-family: 'Michroma', sans-serif; max-width: 100%; }
 .service-gateway__intro > p { color: #c0c2bd; font-size: 16px; line-height: 1.6; margin: 0; }

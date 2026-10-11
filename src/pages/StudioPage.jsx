@@ -20,9 +20,9 @@ function SiteOpeningReveal() {
     <motion.div
       className="site-opening-reveal"
       aria-hidden="true"
-      initial={{ clipPath: 'inset(0 0 0 0)' }}
-      animate={{ clipPath: 'inset(100% 0 0 0)' }}
-      transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
+      initial={{ opacity: 1 }}
+      animate={{ opacity: 0 }}
+      transition={{ duration: 0.32, ease: 'easeOut' }}
       onAnimationComplete={() => setVisible(false)}
     />
   )

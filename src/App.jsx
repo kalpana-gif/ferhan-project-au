@@ -24,7 +24,7 @@ export default function App() {
     if (description) {
       description.content = route.type === 'site'
         ? 'Farhan Architects is an architecture and design studio based in Perth, Western Australia, specialising in residential, multi-residential and commercial architecture since 2007.'
-        : 'Farhan solution brings together design, development and consulting expertise in Perth, Western Australia. Choose the service that fits your project.'
+        : 'Farhan Solution brings together design, development and consulting expertise in Perth, Western Australia. Choose the service that fits your project.'
     }
   }, [route.type, route.category?.title])
 
