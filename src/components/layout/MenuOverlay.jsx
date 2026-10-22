@@ -22,8 +22,8 @@ const menuPreviews = {
   ...Object.fromEntries(servicePaths.map((service) => [service.id, { image: service.image, alt: service.title, label: service.title }])),
   portfolio: { image: '/assets/gallery-exterior-day.jpg', alt: 'Contemporary home in a landscaped garden', label: 'Portfolio' },
   gallery: { image: '/assets/gallery-loft-interior.jpg', alt: 'Contemporary loft interior', label: 'Gallery' },
-  about: { image: '/assets/slide_10-810x1080.jpg', alt: 'Farhan Architects interior detail', label: 'About' },
-  team: { image: '/assets/team/team-01.webp', alt: 'Farhan Architects studio team member', label: 'Team' },
+  about: { image: '/assets/slide_10-810x1080.jpg', alt: 'Ferhan Architects interior detail', label: 'About' },
+  team: { image: '/assets/team/team-01.webp', alt: 'Ferhan Architects studio team member', label: 'Team' },
   contact: { image: '/assets/gallery-forest-house.jpg', alt: 'Contemporary home surrounded by trees', label: 'Contact' },
 }
 
@@ -54,7 +54,7 @@ function MenuLevel({ title, items, onSelect, onBack, onPreview }) {
   )
 }
 
-export default function MenuOverlay({ isOpen, activeSection, onClose, onNavigate, onSlideSelect }) {
+export default function MenuOverlay({ isOpen, activeSection, onClose, onNavigate, onSlideSelect, items = navigation, services = servicePaths, previews = menuPreviews, descriptor = 'Architects', projectsHref = '/projects' }) {
   const [section, setSection] = useState(null)
   const [previewId, setPreviewId] = useState(null)
   const dialogRef = useRef(null)
@@ -62,9 +62,9 @@ export default function MenuOverlay({ isOpen, activeSection, onClose, onNavigate
   const defaultPreviewId = section === 'portfolio'
     ? portfolioGroups[0].slideId
     : section === 'services'
-      ? servicePaths[0].id
+      ? services[0]?.id
       : activeSection
-  const preview = menuPreviews[previewId] || menuPreviews[defaultPreviewId] || menuPreviews.home
+  const preview = previews[previewId] || previews[defaultPreviewId] || previews.home || menuPreviews.home
 
   useModalA11y(isOpen, dialogRef, onClose)
 
@@ -114,7 +114,7 @@ export default function MenuOverlay({ isOpen, activeSection, onClose, onNavigate
           >
           <div className="menu-content">
             <div className="menu-topline">
-              <BrandMark />
+              <BrandMark descriptor={descriptor} label={`Ferhan ${descriptor}`} />
               <motion.button className="menu-close" onClick={onClose} data-modal-autofocus aria-label="Close navigation"><CloseIcon /></motion.button>
             </div>
 
@@ -126,7 +126,7 @@ export default function MenuOverlay({ isOpen, activeSection, onClose, onNavigate
                 {!section && (
                   <motion.div className="menu-root" variants={stagger} initial="hidden" animate="visible" exit="hidden" key="root">
                     <motion.ul variants={stagger}>
-                      {navigation.map((item) => (
+                      {items.map((item) => (
                         <motion.li key={item.id} variants={fadeUp}>
                           <motion.button onClick={() => item.id === 'services' ? setSection('services') : closeAndNavigate(item.id)} onPointerEnter={() => setPreviewId(item.id)} onFocus={() => setPreviewId(item.id)} aria-current={activeSection === item.id ? 'location' : undefined}><span>{item.label}</span><span className="menu-link-arrow" aria-hidden="true"><ArrowIcon /></span></motion.button>
                         </motion.li>
@@ -134,7 +134,7 @@ export default function MenuOverlay({ isOpen, activeSection, onClose, onNavigate
                     </motion.ul>
                     <motion.div className="menu-explore" variants={fadeUp}>
                       <LearnMoreButton onClick={() => closeAndNavigate('choose')}>Choose a path</LearnMoreButton>
-                      <LearnMoreButton onClick={() => setSection('portfolio')}>Selected projects</LearnMoreButton>
+                      <LearnMoreButton onClick={() => projectsHref ? window.location.assign(projectsHref) : setSection('portfolio')}>Selected projects</LearnMoreButton>
                     </motion.div>
                   </motion.div>
                 )}
@@ -144,10 +144,10 @@ export default function MenuOverlay({ isOpen, activeSection, onClose, onNavigate
                     <MenuBackButton onClick={() => setSection(null)} />
                     <motion.p className="menu-kicker" variants={fadeUp}>Services</motion.p>
                     <motion.ul variants={stagger}>
-                      {servicePaths.map((item) => (
+                      {services.map((item) => (
                         <motion.li key={item.id} variants={fadeUp}>
                           <motion.a href={item.path} aria-current={window.location.pathname === item.path ? 'page' : undefined} onPointerEnter={() => setPreviewId(item.id)} onFocus={() => setPreviewId(item.id)}>
-                            <span>{item.title}{!item.available && <small>Coming soon</small>}</span><span aria-hidden="true"><ArrowIcon /></span>
+                            <span>{item.title}{item.available === false && <small>Coming soon</small>}</span><span aria-hidden="true"><ArrowIcon /></span>
                           </motion.a>
                         </motion.li>
                       ))}
@@ -162,7 +162,7 @@ export default function MenuOverlay({ isOpen, activeSection, onClose, onNavigate
                   <motion.img key={preview.image} src={preview.image} alt={preview.alt} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.24 }} />
                 </AnimatePresence>
               </div>
-              <figcaption><span>Farhan Architects</span><span>{preview.label}</span></figcaption>
+              <figcaption><span>Ferhan {descriptor}</span><span>{preview.label}</span></figcaption>
             </figure>
             </div>
 

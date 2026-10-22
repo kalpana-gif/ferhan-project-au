@@ -135,7 +135,7 @@ function TeamTape() {
   return (
     <motion.div
       className={`team-roster-viewport ${isDragging ? 'is-dragging' : ''}`}
-      aria-label="Farhan Architects team"
+      aria-label="Ferhan Architects team"
       title="Drag to explore the team"
       variants={stagger}
       initial="hidden"

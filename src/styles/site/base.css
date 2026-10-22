@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
-
 .tech-text { position: relative; display: block; touch-action: pan-y; }
 .tech-text > canvas { position: absolute; left: -36px; top: -36px; width: calc(100% + 72px); height: calc(100% + 72px); pointer-events: none; opacity: 0; }
 .tech-text[data-ready="true"] > canvas { opacity: 1; }
@@ -22,7 +20,7 @@
   font-family: 'Graphik';
   src: url('/assets/Graphik-Medium.woff') format('woff');
   font-style: normal;
-  font-weight: 600 800;
+  font-weight: 500 800;
   font-display: swap;
 }
 

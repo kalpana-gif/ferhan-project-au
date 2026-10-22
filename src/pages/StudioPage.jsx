@@ -6,7 +6,7 @@ import DetailDialog from '../components/dialogs/DetailDialog'
 import ContactDialog from '../components/dialogs/ContactDialog'
 import ConstructionScroll from '../components/effects/ConstructionScroll'
 import SiteFooter from '../components/layout/SiteFooter'
-import { AboutSection, ContactSection, GallerySection, PortfolioSection, ScrollExpandIntro, ScrollExpandScene, ServicesSection, TeamSection } from '../components/sections'
+import { AboutSection, GallerySection, PortfolioSection, ScrollExpandIntro, ScrollExpandScene, ServicesSection, TeamSection } from '../components/sections'
 import { navigationIds } from '../data/navigation'
 import { slides } from '../data/slides'
 import { useActiveSection } from '../hooks/useActiveSection'
@@ -37,6 +37,7 @@ export default function StudioPage() {
   useEffect(() => {
     if (!window.location.hash) return
     const targetId = decodeURIComponent(window.location.hash.slice(1))
+    if (['contact', 'enquire'].includes(targetId)) { setIsContactOpen(true); return }
     const frame = requestAnimationFrame(() => {
       document.getElementById(targetId)?.scrollIntoView({ behavior: 'auto', block: 'start' })
     })
@@ -61,6 +62,7 @@ export default function StudioPage() {
       window.location.assign('/')
       return
     }
+    if (id === 'contact') { setIsContactOpen(true); return }
     navigateTo(id)
   }
 
@@ -100,14 +102,14 @@ export default function StudioPage() {
           holdDistance={0.2}
           overlayScrim={0.58}
         />
-        <PortfolioSection onOpenDetail={openDetail} />
+        <PortfolioSection />
         <GallerySection />
         <AboutSection onNavigate={navigate} />
         <TeamSection />
         <ScrollExpandScene
           variant="contact"
           src="/assets/gallery-exterior-day.jpg"
-          alt="A contemporary Farhan Architects residence with landscaped gardens at dusk"
+          alt="A contemporary Ferhan Architects residence with landscaped gardens at dusk"
           title="The next room starts here."
           eyebrow="Begin a conversation"
           heading="The best projects start with a shared point of view."
@@ -120,8 +122,7 @@ export default function StudioPage() {
           holdDistance={0.2}
           overlayScrim={0.54}
         />
-        <ContactSection onOpenContact={() => setIsContactOpen(true)} />
-        <SiteFooter onNavigate={navigate} />
+        <SiteFooter onNavigate={navigate} onOpenContact={() => setIsContactOpen(true)} />
       </main>
       <MenuOverlay
         activeSection={activeSection}

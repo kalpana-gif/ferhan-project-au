@@ -35,7 +35,7 @@ export function useModalA11y(isOpen, dialogRef, onClose) {
 
     openerRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null
 
-    const app = document.querySelector('.app')
+    const app = document.querySelector('[data-modal-background], .app')
     const wasInert = app?.hasAttribute('inert')
     const previousAriaHidden = app?.getAttribute('aria-hidden')
     const previousOverflow = document.body.style.overflow
