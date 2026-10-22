@@ -82,7 +82,7 @@ export const slides = [
   },
   {
     id: 'about',
-    title: 'Farhan Architects',
+    title: 'Ferhan Architects',
     eyebrow: 'About',
     description: 'Thoughtful architecture shaped around place, purpose and the people who inhabit it.',
     image: '/assets/slide_10-810x1080.jpg',

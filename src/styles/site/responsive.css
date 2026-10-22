@@ -8,35 +8,30 @@
   .carousel { min-height: 620px; }
   .scroll-expand-hero { height: calc(100svh * 2.18); min-height: 1120px; }
   .scroll-expand-overlay { padding: 0 28px 17vh !important; }
-  .scroll-expand-title { font-size: clamp(53px, 12vw, 92px) !important; padding: 0 25px 15vh !important; }
+  .scroll-expand-title { padding: 0 25px 15vh !important; }
   .scroll-expand-hint { padding-left: 28px; }
   .scroll-expand-content { max-width: 330px; }
-  .scroll-expand-content h2 { font-size: 43px; }
-  .scroll-expand-content > span { font-size: 13px; }
   .scroll-expand-scene .scroll-expand-overlay { padding: 0 28px 15vh !important; }
-  .scroll-expand-scene .scroll-expand-title { font-size: clamp(49px, 12vw, 84px) !important; padding: 0 25px 14.5vh !important; }
+  .scroll-expand-scene .scroll-expand-title { padding: 0 25px 14.5vh !important; }
   .scroll-expand-scene .scroll-expand-hint { padding-left: 28px; }
   .scroll-expand-scene-content { max-width: 340px; }
-  .scroll-expand-scene-content h2 { font-size: clamp(40px, 10vw, 64px); }
-  .scroll-expand-scene-content > span { font-size: 13px; max-width: 335px; }
+  .scroll-expand-scene-content > span { max-width: 335px; }
   .visual-stage { min-height: 620px; }
   .construction-scroll { height: 320svh; }
   .construction-scroll__video { object-position: 62% center; }
   .is-framed .visual-stage { height: calc(100% - 28px); margin: 14px 15px; }
   .caption { bottom: 113px; left: 28px; max-width: calc(100% - 56px); }
-  .caption h1 { font-size: clamp(38px, 10vw, 56px); max-width: 440px; }
-  .caption-description { font-size: 14px; max-width: 340px; }
+  .caption h1 { max-width: 440px; }
+  .caption-description { max-width: 340px; }
   .caption-action { margin-top: 24px; }
   .slide-navigation button { height: 70px; top: calc(50% - 35px); width: 45px; }
   .nav-arrow--previous { left: 2px; }
   .nav-arrow--next { right: 2px; }
   .carousel-footer { bottom: 27px; grid-template-columns: 1fr auto; left: 27px; right: 27px; }
   .slide-rail, .scroll-prompt { display: none; }
-  .active-section { font-size: 8px; }
   .section-shell { padding: 94px 25px; }
   .section-heading { display: block; margin-bottom: 48px; }
   .section-heading .section-kicker { margin-bottom: 19px; }
-  .section-heading h2 { font-size: clamp(42px, 9.2vw, 70px); }
   .section-copy { margin-top: 24px; }
   .service-grid { grid-template-columns: repeat(2, 1fr); }
   .service-card { aspect-ratio: .94; }
@@ -48,7 +43,6 @@
   .about-section, .contact-section { grid-template-columns: 1fr; }
   .about-image { min-height: 510px; }
   .about-content, .contact-content { max-width: none; padding: 90px 25px; }
-  .about-content h2, .contact-content h2 { font-size: clamp(46px, 10.4vw, 73px); }
   .team-profile-card { flex-basis: clamp(220px, 39vw, 310px); width: clamp(220px, 39vw, 310px); }
   .contact-map { --map-padding: 25px; height: 530px; min-height: 0; }
   .contact-content { padding-bottom: 98px; }
@@ -57,8 +51,6 @@
   .menu-content { padding: 24px 25px 28px; }
   .menu-body { grid-template-columns: 1fr; padding: 40px 0; }
   .menu-feature { display: none; }
-  .menu-root > ul button { font-size: clamp(38px, 6vw, 58px); }
-  .menu-level li button, .menu-level li a { font-size: 28px; }
   .menu-socials { gap: 8px 24px; }
   .dialog-backdrop { padding: 13px; }
   .detail-dialog, .contact-dialog { max-height: calc(100dvh - 26px); padding: 47px 28px 33px; }
@@ -68,15 +60,10 @@
 @media (max-width: 540px) {
   .construction-scroll { height: 280svh; }
   .construction-scroll__video { height: 100%; inset: 0 auto 0 50%; max-width: none; min-width: 165vw; object-fit: contain; object-position: center; transform: translate3d(-50%, 0, 0); width: 165vw; }
-  .scroll-expand-scene .scroll-expand-title { font-size: 48px !important; }
-  .scroll-expand-scene-content h2 { font-size: 40px; }
-  .caption h1 { font-size: 42px; }
-  .caption-eyebrow, .section-kicker, .dialog-eyebrow, .menu-kicker { font-size: 9px; }
   .caption { bottom: 102px; }
-  .caption-description { font-size: 13px; max-width: 310px; }
+  .caption-description { max-width: 310px; }
   .service-grid { gap: 9px; }
   .card-content { bottom: 15px; left: 15px; right: 15px; }
-  .card-content strong { font-size: 17px; }
   .card-link { margin-top: 12px; }
   .portfolio-feature.feature-1 { min-height: 390px; }
   .portfolio-feature { min-height: 270px; }
@@ -89,11 +76,9 @@
   .contact-map { height: 380px; }
   .contact-map iframe { border-radius: 20px; }
   .contact-content { padding: 76px 25px 82px; }
-  .contact-content h2 { font-size: clamp(46px, 11vw, 64px); }
   .plane-button.contact-primary-action { margin-top: 36px; }
   .contact-details { margin-top: 30px; }
   .contact-detail { gap: 12px; grid-template-columns: 28px minmax(0, 1fr); padding: 16px 0; }
-  .contact-detail__value { font-size: 13px; }
   .footer-shell { align-items: flex-start; flex-wrap: wrap; gap: 15px 24px; padding: 24px 25px 28px; }
   .footer-shell > span:nth-child(2) { order: 3; width: 100%; }
   .footer-shell button { margin-left: auto; }
@@ -102,16 +87,13 @@
   .menu-content { padding: max(20px, env(safe-area-inset-top)) 25px max(24px, env(safe-area-inset-bottom)); }
   .menu-body { padding: 32px 0; }
   .menu-root > ul { gap: 6px; }
-  .menu-root > ul button { font-size: 42px; }
   .menu-explore { gap: 14px 24px; margin-top: 36px; }
   .menu-footer { align-items: flex-start; flex-direction: column; gap: 14px; padding-top: 20px; }
   .menu-socials { flex-direction: column; gap: 8px; }
-  .menu-level li button, .menu-level li a { font-size: 25px; }
   .form-grid { grid-template-columns: 1fr; }
   .form-full { grid-column: auto; }
   .contact-dialog-backdrop { padding: 0; }
   .contact-dialog { height: 100dvh; max-height: 100dvh; padding: max(62px, env(safe-area-inset-top)) 24px max(28px, env(safe-area-inset-bottom)); width: 100%; }
-  .contact-dialog h2 { font-size: clamp(36px, 9vw, 46px); }
 }
 
 @media (prefers-reduced-motion: reduce) {

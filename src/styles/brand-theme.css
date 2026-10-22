@@ -1,0 +1,57 @@
+/* Colour skin only: the Architects composition retains its layout. */
+:root { --brand-logo-color: #aada89; --brand-symbol-color: #10170d; --brand-white: #ffffff; --cream: var(--brand-white); --soft-cream: #c7c7c7; --ink: #142010; --canvas: #090c09; --accent: #aada89; }
+::selection { background: #aada89; color: #10170d; }
+/* One service lockup for headers and navigation: F badge + service name. */
+.brand-mark.brand-mark--service { --service-logo-size: 44px; align-items: flex-end; gap: 11px; height: var(--service-logo-size); width: max-content; max-width: 100%; color: #fff; }
+.brand-mark.brand-mark--service .brand-mark__symbol { color: #aada89; flex: 0 0 var(--service-logo-size); height: var(--service-logo-size); width: var(--service-logo-size); }
+.brand-mark.brand-mark--service .brand-mark__letter { fill: #10170d; }
+.brand-mark.brand-mark--service .brand-mark__descriptor { color: #fff; font-family: Graphik, Helvetica, Arial, sans-serif; font-size: 10px; font-weight: 600; letter-spacing: .14em; line-height: 1.2; padding-bottom: 3px; text-transform: uppercase; white-space: nowrap; }
+.site-header .brand-button, .expertise-header .expertise-brand { height: auto; width: max-content; max-width: 100%; }
+@media (max-width: 960px) {
+  .brand-mark.brand-mark--service { --service-logo-size: 40px; gap: 10px; }
+}
+@media (max-width: 600px) {
+  .brand-mark.brand-mark--service { --service-logo-size: 36px; gap: 9px; }
+  .brand-mark.brand-mark--service .brand-mark__descriptor { font-size: 9px; letter-spacing: .12em; padding-bottom: 2px; }
+}
+.app .services-section, .app .gallery-section { background: var(--brand-white); }
+.app .team-section, .app .team-profile-card { background: var(--brand-white); }
+.app .portfolio-section, .app .about-section, .app .contact-section { background: #10170f; }
+.app .portfolio-section {
+  background:
+    radial-gradient(ellipse 46% 85% at -8% 48%, rgba(130, 190, 87, .23) 0%, rgba(69, 110, 45, .12) 43%, transparent 76%),
+    radial-gradient(ellipse 46% 85% at 108% 58%, rgba(130, 190, 87, .23) 0%, rgba(69, 110, 45, .12) 43%, transparent 76%),
+    #10170f;
+}
+.app .about-section {
+  background:
+    radial-gradient(ellipse 55% 95% at 108% 42%, rgba(130, 190, 87, .24) 0%, rgba(69, 110, 45, .13) 44%, transparent 78%),
+    linear-gradient(135deg, #10170f 48%, #152311 100%);
+}
+.app .about-statements { border-top-color: #aada8938; }
+.app .contact-section, .app .site-footer .contact-section,
+.expertise-page--consultants .site-footer .contact-section {
+  background:
+    radial-gradient(ellipse 55% 95% at 108% 42%, rgba(130, 190, 87, .24) 0%, rgba(69, 110, 45, .13) 44%, transparent 78%),
+    radial-gradient(ellipse 42% 80% at -8% 70%, rgba(69, 110, 45, .15), transparent 76%),
+    linear-gradient(135deg, #10170f 48%, #152311 100%);
+}
+.app .contact-map iframe, .expertise-page--consultants .contact-map iframe { border-color: #aada8938; box-shadow: 0 24px 60px #00000040, 0 0 32px #aada8908; }
+.app .contact-details > li + li, .expertise-page--consultants .contact-details > li + li { border-top-color: #aada8929; }
+.app .contact-detail:hover, .expertise-page--consultants .contact-detail:hover { color: #aada89; }
+.app .site-header.is-scrolled { background: rgba(9,15,8,.84); }
+.nav-link.is-active, .nav-link:hover, .app .section-kicker, .app .contact-detail__icon, .about-statements { color: #aada89; }
+.app .services-section .section-kicker, .app .gallery-section .section-kicker, .app .team-section .section-kicker { color: #426326; }
+.nav-indicator { background: #aada89; }
+.app .scroll-expand-content button { background: #aada89; color: #142010; }
+.app .plane-button.contact-primary-action { --button-fill-start: #426326; --button-fill-end: #1c3317; }
+.service-gateway { --brand-logo-color: #aada89; --brand-symbol-color: #10170d; background: #090c09; }
+.service-gateway__shell { justify-content: center; }
+.service-gateway__header { margin-bottom: 24px; }
+.service-gateway__intro { margin-bottom: 35px; }
+.service-gateway__intro > .service-gateway__eyebrow { color: #aada89; margin-bottom: 15px; }
+.service-gateway__card-wrap:focus-within .service-gateway__glow { outline-color: #aada89; }
+.service-gateway__card-action { color: #aada89; border-color: #aada8980; }
+.service-gateway__card:hover .service-gateway__card-shade { background: linear-gradient(180deg, #1c331744, transparent 35%), linear-gradient(0deg, #090c09ed, #090c0910 72%); }
+.service-gateway__footer::before { background: linear-gradient(90deg, transparent, #aada8970, transparent); }
+@media (max-width: 600px) { .service-gateway__shell { justify-content: flex-start; }.service-gateway__header { margin-bottom: 0; } }

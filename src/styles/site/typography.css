@@ -1,17 +1,229 @@
-/* Descriptive copy uses the Architects Daughter studio accent across the site. */
-.caption-description,
-.scroll-expand-content > span,
-.scroll-expand-scene-content > span,
-.section-copy p,
-.gallery-note span,
-.about-content > p:not(.section-kicker),
-.team-caption,
-.team-card p,
-.contact-content > p:not(.section-kicker),
-.detail-dialog p:not(.dialog-eyebrow),
-.contact-dialog p:not(.dialog-eyebrow) {
-  font-family: 'Architects Daughter', cursive;
+/* Shared type roles. Loaded after page styles so every route uses this scale. */
+:root {
+  --font-body: Graphik, Helvetica, Arial, sans-serif;
+  --weight-body: 300;
+  --weight-heading: 300;
+  --weight-ui: 500;
+  --type-display: clamp(3rem, 6.2vw, 5.5rem);
+  --type-section: clamp(2.25rem, 4.4vw, 4rem);
+  --type-title: clamp(1.75rem, 2.8vw, 2.5rem);
+  --type-card: clamp(1.375rem, 2vw, 1.875rem);
+  --type-card-compact: clamp(1.125rem, 1.6vw, 1.5rem);
+  --type-body: 1rem;
+  --type-small: .875rem;
+  --type-caption: .75rem;
+  --type-label: .6875rem;
+  --leading-display: 1.06;
+  --leading-section: 1.12;
+  --leading-title: 1.2;
+  --leading-body: 1.7;
+  --leading-small: 1.6;
+  --leading-ui: 1.4;
+  --tracking-display: -.055em;
+  --tracking-section: -.045em;
+  --tracking-title: -.025em;
+  --tracking-label: .12em;
+  --tracking-ui: .025em;
+}
+
+html { font-family: var(--font-body); }
+body { font-family: var(--font-body); font-size: var(--type-body); font-weight: var(--weight-body); line-height: var(--leading-body); letter-spacing: 0; }
+button, input, select, textarea { font-family: inherit; }
+button, input, select { line-height: var(--leading-ui); }
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-body); font-weight: var(--weight-heading); overflow-wrap: break-word; }
+
+/* Main page titles, including the text rendered by the scroll scenes. */
+.projects-intro h1, .projects-empty h1, .expertise-hero h1,
+.expertise-not-found h1, .service-gateway__message h1, .caption h1,
+.scroll-expand-hero .scroll-expand-title, .scroll-expand-scene .scroll-expand-title {
+  font-size: var(--type-display); font-weight: var(--weight-heading);
+  line-height: var(--leading-display); letter-spacing: var(--tracking-display);
+}
+
+/* Section headings share one rhythm on all three solutions and Projects. */
+.section-heading h2, .contact-content h2, .about-content h2,
+.expertise-section h2, .expertise-approach h2, .expertise-services .section-heading h2,
+.testimonials-heading h2, .project-related h2, .scroll-expand-content h2,
+.expertise-opening .scroll-expand-content h2, .scroll-expand-scene-content h2 {
+  font-size: var(--type-section); font-weight: var(--weight-heading);
+  line-height: var(--leading-section); letter-spacing: var(--tracking-section);
+}
+.project-story h2, .projects-empty h2, .detail-dialog h2, .contact-dialog h2,
+.design-preview-dialog h2, .enquiry-story h2, .enquiry-panel h3, .expertise-process-title {
+  font-size: var(--type-title); font-weight: var(--weight-heading);
+  line-height: var(--leading-title); letter-spacing: var(--tracking-title);
+}
+.project-card__caption h3, .portfolio-label strong,
+.expertise-service-card .card-content strong, .expertise-card h3,
+.expertise-accordion__item button, .expertise-next a, .service-gateway__card-bottom strong {
+  font-size: var(--type-card); font-weight: var(--weight-heading);
+  line-height: var(--leading-title); letter-spacing: var(--tracking-title);
+}
+.card-content strong, .accordion-gallery-title {
+  font-size: var(--type-card-compact); font-weight: var(--weight-heading);
+  line-height: var(--leading-title); letter-spacing: var(--tracking-title);
+}
+.testimonial-card blockquote {
+  font-size: var(--type-card); font-weight: var(--weight-heading);
+  line-height: 1.45; letter-spacing: var(--tracking-title);
+}
+
+/* Reading copy uses one face, size and line spacing. */
+.caption-description, .scroll-expand-content > span,
+.expertise-opening .scroll-expand-content > span, .scroll-expand-scene-content > span,
+.section-copy p, .about-content > p:not(.section-kicker),
+.contact-content > p:not(.section-kicker), .projects-intro > p:last-child,
+.project-story p, .projects-empty p, .expertise-hero__intro,
+.expertise-section-heading p:not(.expertise-kicker), .expertise-approach p:not(.expertise-kicker),
+.expertise-accordion__item [role="region"] > p:not(.expertise-note), .expertise-detail__grid p:not(.expertise-note),
+.expertise-contact > div > p:not(.expertise-kicker),
+.service-gateway__intro > p:not(.service-gateway__eyebrow),
+.service-gateway__message p:not(.service-gateway__eyebrow),
+.detail-dialog p:not(.dialog-eyebrow), .contact-dialog p:not(.dialog-eyebrow) {
+  font-family: var(--font-body); font-size: var(--type-body); font-weight: var(--weight-body);
+  line-height: var(--leading-body); letter-spacing: 0;
+}
+.project-card__caption > span, .expertise-service-card__description,
+.expertise-card p, .expertise-process li p, .expertise-detail__grid li,
+.service-gateway__card-description, .gallery-note span,
+.enquiry-story__content > p:not(.enquiry-eyebrow), .enquiry-panel__intro,
+.enquiry-success > p:not(.enquiry-eyebrow), .design-preview-dialog p,
+.contact-detail__value, .enquiry-details a, .enquiry-success > a,
+.menu-socials a, .expertise-contact__details a {
+  font-family: var(--font-body); font-size: var(--type-small); font-weight: var(--weight-body);
+  line-height: var(--leading-small); letter-spacing: 0;
+}
+
+/* Eyebrows and category labels. The logo lockup keeps its own proportions. */
+.caption-eyebrow, .section-kicker, .dialog-eyebrow, .menu-kicker,
+.projects-kicker, .expertise-kicker, .testimonials-heading > p,
+.service-gateway__eyebrow, .service-gateway__intro > .service-gateway__eyebrow,
+.scroll-expand-content > p, .scroll-expand-scene-content > p,
+.enquiry-dialog .enquiry-eyebrow, .card-type, .portfolio-label em,
+.project-card__caption > p, .gallery-note p, .contact-detail__label,
+.about-statements span, .service-gateway__card-top, .expertise-service-card__number,
+.active-section, .team-profile-card__footer, .expertise-strip, .expertise-hero__bottom {
+  font-size: var(--type-label); font-weight: var(--weight-ui); line-height: var(--leading-ui);
+  letter-spacing: var(--tracking-label); text-transform: uppercase;
+}
+.scroll-expand-hero .scroll-expand-hint, .scroll-expand-scene .scroll-expand-hint {
+  font-size: var(--type-label); font-weight: var(--weight-ui); line-height: var(--leading-ui);
+  letter-spacing: var(--tracking-label);
+}
+
+/* Navigation and action labels share weights and tracking. */
+.nav-link, .expertise-nav > a, .projects-header nav,
+.projects-header nav button, .service-gateway__header > a, .service-gateway__card-action,
+.caption-action, .light-text-button, .dark-text-button,
+.scroll-expand-content button, .scroll-expand-scene-content button,
+.portfolio-label i, .card-link, .text-button, .learn-more__text,
+.back-control > span:last-child, .service-gateway__return {
+  font-size: var(--type-label); font-weight: var(--weight-ui); line-height: var(--leading-ui);
+  letter-spacing: var(--tracking-label); text-transform: uppercase;
+}
+.plane-button, .expertise-button, .expertise-text-link, .projects-text-link,
+.portfolio-all-link, .project-filters button, .design-preview-trigger,
+.design-preview-done, .footer-bottom__top, .footer-bottom__links a,
+.enquiry-return, .expertise-back {
+  font-size: var(--type-caption); font-weight: var(--weight-ui); line-height: var(--leading-ui);
+  letter-spacing: var(--tracking-ui);
+}
+.menu-root > ul button, .menu-level li button, .menu-level li a {
+  font-size: var(--type-title); font-weight: var(--weight-heading);
+  line-height: var(--leading-title); letter-spacing: var(--tracking-title);
+}
+.menu-root > ul button:is([aria-current], :hover, :focus-visible) { font-weight: var(--weight-heading); }
+.service-path-dropdown__menu a { font-size: var(--type-small); line-height: var(--leading-small); letter-spacing: 0; text-transform: none; }
+
+/* Captions, notices and form labels stay legible at every viewport size. */
+.projects-count, .project-gallery figcaption, .project-gallery__bar span,
+.testimonial-attribution, .testimonial-attribution > span:last-child,
+.testimonials-pagination, .footer-bottom__meta > div,
+.team-profile-card__header > span, .team-profile-card__header p,
+.enquiry-story__location, .enquiry-consent, .enquiry-form__note, .enquiry-error,
+.expertise-availability, .expertise-note, .expertise-accordion__number, .expertise-process li > span,
+.expertise-form__status, .expertise-form__error, .menu-location,
+.menu-feature figcaption, .menu-level li a small,
+.service-gateway__footer, .service-gateway__header > span:not(.brand-mark) {
+  font-size: var(--type-caption); font-weight: var(--weight-body);
+  line-height: var(--leading-small); letter-spacing: 0;
+}
+.team-profile-card__header h3, .expertise-process h4 {
+  font-size: var(--type-body); font-weight: var(--weight-ui);
+  line-height: var(--leading-title); letter-spacing: 0;
+}
+.enquiry-form__grid label, .expertise-form label, .form-grid label > span {
+  font-size: var(--type-caption); font-weight: var(--weight-ui);
+  line-height: var(--leading-ui); letter-spacing: 0;
+}
+.enquiry-form__grid :is(input, select, textarea),
+.expertise-form input:not([type="checkbox"]), .expertise-form textarea,
+.expertise-form select, .form-grid input, .form-grid textarea {
+  font-family: var(--font-body); font-size: var(--type-body); font-weight: var(--weight-body);
+  line-height: 1.5; letter-spacing: 0;
+}
+.enquiry-form__grid textarea::placeholder { font-size: var(--type-small); }
+
+/* Clear hierarchy and aligned copy on the service selection screen. */
+.service-gateway__card-bottom strong {
+  font-size: clamp(2rem, 2.4vw, 2.375rem);
   font-weight: 300;
-  letter-spacing: 0.02em;
+  letter-spacing: -.035em;
+  line-height: 1.15;
+}
+.service-gateway__card-description {
+  color: #e2e5df;
+  font-size: clamp(1.0625rem, 1.2vw, 1.1875rem);
+  font-weight: 300;
+  letter-spacing: -.01em;
+  line-height: 1.6;
+  margin-top: 16px;
+  min-height: 4.8em;
+  text-wrap: pretty;
+}
+.service-gateway__intro > p:not(.service-gateway__eyebrow) {
+  color: #e1e4dc;
+  font-size: clamp(1.125rem, 1.65vw, 1.5rem);
+  font-weight: 300;
+  letter-spacing: -.025em;
+  line-height: 1.5;
+  text-wrap: balance;
+}
+.service-gateway__intro > .service-gateway__eyebrow {
+  font-size: clamp(.875rem, 1vw, 1rem);
+}
+.service-gateway__footer,
+.service-gateway__header > span:not(.brand-mark) {
+  color: #cdd2c7;
+  font-size: .875rem;
+  font-weight: 400;
+}
+.service-gateway__header > span:not(.brand-mark) { font-size: .75rem; }
+
+/* Let text containers grow as copy wraps on narrow phones. */
+.portfolio-label { right: 28px; }
+.portfolio-label strong, .project-card__caption h3, .card-content strong { overflow-wrap: anywhere; }
+.project-card__caption h3 svg { flex-shrink: 0; }
+.about-content { padding-inline: clamp(28px, 4vw, 64px); }
+.scroll-expand-content, .scroll-expand-scene-content { max-width: min(100%, 720px); }
+.scroll-expand-content > span, .scroll-expand-scene-content > span { max-width: min(100%, 440px); }
+.service-card .card-content { max-width: calc(100% - 30px); }
+.enquiry-story, .enquiry-panel, .testimonials-heading > * { min-width: 0; }
+@media (max-width: 960px) {
+  .expertise-header, .projects-header { grid-template-columns: 1fr auto; }
+  .expertise-header .expertise-nav, .projects-header nav { display: none; }
+}
+@media (max-width: 480px) {
+  .service-grid { grid-template-columns: 1fr; }
+  .service-card { aspect-ratio: 1; min-height: 320px; }
+  .testimonials-heading { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .testimonials-controls { justify-self: start; }
+  .portfolio-label { left: 22px; right: 22px; }
+}
+@media (max-height: 720px) and (max-width: 960px) {
+  .scroll-expand-hero .scroll-expand-overlay,
+  .scroll-expand-scene .scroll-expand-overlay { padding-block: 56px 76px !important; }
+  .scroll-expand-content > span, .scroll-expand-scene-content > span { margin-top: 16px; }
+  .scroll-expand-content button, .scroll-expand-scene-content button { margin-top: 20px; }
 }
 

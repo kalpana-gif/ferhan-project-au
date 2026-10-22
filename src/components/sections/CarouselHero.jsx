@@ -16,7 +16,7 @@ export default function CarouselHero({ activeIndex, isFramed, onIndexChange, onD
   }
 
   return (
-    <section className={`carousel showcase-carousel ${isFramed ? 'is-framed' : ''}`} aria-roledescription="carousel" aria-label="Farhan Architects projects">
+    <section className={`carousel showcase-carousel ${isFramed ? 'is-framed' : ''}`} aria-roledescription="carousel" aria-label="Ferhan Architects projects">
       <div className="visual-stage" aria-live="polite">
         <AnimatePresence mode="wait" initial={false}>
           <motion.article

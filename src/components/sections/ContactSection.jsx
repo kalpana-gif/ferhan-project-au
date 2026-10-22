@@ -20,7 +20,7 @@ export function ContactSection({ onOpenContact }) {
         <motion.p className="section-kicker" variants={fadeUp}>Get in touch</motion.p>
         <motion.h2 variants={fadeUp}><InlineTechText text="Tell us what you have in mind." specks={8} speed={0.65} strokeWidth={1} /></motion.h2>
         <motion.p variants={fadeUp}>A new home, a fresh perspective, or just the beginning of an idea. We’d love to hear about it.</motion.p>
-        <PlaneButton className="contact-primary-action" type="button" icon="message" label="Start a conversation" onClick={onOpenContact} />
+        <PlaneButton className="contact-primary-action" type="button" icon="message" label="Start a conversation" onClick={onOpenContact} aria-haspopup="dialog" />
         <motion.ul className="contact-details" variants={fadeUp} role="list">
           <li>
             <a className="contact-detail" href="mailto:cf@ferhandesign.com.au">

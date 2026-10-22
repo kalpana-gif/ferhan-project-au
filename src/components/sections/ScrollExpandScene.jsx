@@ -1,5 +1,6 @@
 import ScrollExpand from '../effects/ScrollExpand'
-import { ArrowIcon } from '../shared/BrandMark'
+import { ArrowRight } from 'lucide-react'
+import './ScrollExpandScene.css'
 
 /**
  * A compact, full-viewport ScrollExpand chapter used to give the long-form
@@ -56,8 +57,8 @@ export default function ScrollExpandScene({
           <h2>{heading}</h2>
           <span>{description}</span>
           {actionLabel && onAction && (
-            <button type="button" onClick={onAction}>
-              {actionLabel} <ArrowIcon />
+            <button className="scene-action-button" type="button" onClick={onAction}>
+              <span>{actionLabel}</span><span className="scene-action-button__icon" aria-hidden="true"><ArrowRight size={24} strokeWidth={2} /></span>
             </button>
           )}
         </div>

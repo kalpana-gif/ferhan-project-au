@@ -1,19 +1,18 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowUpRight, ChevronLeft } from 'lucide-react'
-import { BrandMark } from '../components/shared/BrandMark'
+import { BrandMark, BrandSymbol } from '../components/shared/BrandMark'
 import BorderGlow from '../components/effects/BorderGlow'
 import Crosshair from '../components/effects/Crosshair'
+import TechText from '../components/effects/InlineTechText'
 import StrokeText from '../components/effects/StrokeText'
-import TechText from '../components/effects/TechTextCanvas'
+import ShinyText from '../components/ShinyText'
 import { gatewayContent } from '../data/gatewayContent'
 import { servicePaths } from '../data/servicePaths'
 import '../styles/gateway.css'
 
 const desktopPointerQuery = '(min-width: 961px) and (hover: hover) and (pointer: fine)'
-const headingWords = gatewayContent.heading.split(' ')
-const headingAccent = headingWords.pop() ?? ''
-const headingLead = headingWords.join(' ')
+const headingText = gatewayContent.heading.slice(1)
 const revealEase = [0.22, 1, 0.36, 1]
 const pageReveal = {
   hidden: {},
@@ -45,35 +44,30 @@ function useDesktopPointer() {
   return enabled
 }
 
-function PathCard({ service, index }) {
+function PathCard({ service }) {
   return (
     <motion.div className="service-gateway__card-wrap" variants={cardReveal}>
       <BorderGlow
         className="service-gateway__glow"
         edgeSensitivity={30}
-        glowColor="40 80 80"
-        backgroundColor="#120F17"
+        glowColor="100 70 55"
+        backgroundColor="#10170f"
         borderRadius={28}
         glowRadius={40}
         glowIntensity={1}
         coneSpread={25}
         animated={false}
-        colors={['#c084fc', '#f472b6', '#38bdf8']}
+        colors={['#76bb48', '#aada89', '#659133']}
       >
         <a className={`service-gateway__card ${service.available ? '' : 'is-planned'}`} href={service.path}>
           <img src={service.image} alt="" loading="eager" />
           <span className="service-gateway__card-shade" aria-hidden="true" />
           <span className="service-gateway__card-top">
-            <span>0{index + 1} / 03</span>
             {!service.available && <span>Coming soon</span>}
           </span>
           <span className="service-gateway__card-bottom">
             <strong>{service.title}</strong>
             <span className="service-gateway__card-description">{service.description}</span>
-            <span className="service-gateway__card-action">
-              {service.available ? 'Enter site' : 'View future path'}
-              <ArrowUpRight aria-hidden="true" />
-            </span>
           </span>
         </a>
       </BorderGlow>
@@ -93,7 +87,7 @@ export default function ServiceGateway({ route }) {
         {showCrosshair && (
           <Crosshair
             containerRef={pageRef}
-            color="#ffffff"
+            color="#aada89"
             targetEffect="lock"
             targetSelector=".service-gateway__card"
             thickness={1}
@@ -110,44 +104,49 @@ export default function ServiceGateway({ route }) {
         )}
         <motion.div className="service-gateway__shell" variants={pageReveal} {...revealProps}>
           <motion.header className="service-gateway__header" variants={riseReveal}>
-            <BrandMark descriptor={gatewayContent.brandDescriptor} label={gatewayContent.brandLabel} />
+            <BrandMark className="brand-mark--ferhan" descriptor={gatewayContent.brandDescriptor} label={gatewayContent.brandLabel} />
             <span>{gatewayContent.location}</span>
           </motion.header>
 
           <motion.div className="service-gateway__intro" variants={riseReveal}>
+            <p className="service-gateway__eyebrow">
+              <StrokeText
+                text="ONE VISION. THREE AREAS OF EXPERTISE."
+                strokeColor="#aada89"
+                fillColor="#ffffff"
+                strokeStyle="solid"
+                strokeWidth={0.6}
+                dashLength={10}
+                drawDuration={1.6}
+                fillDelay={0.2}
+                stagger={0.05}
+                ease="power2.out"
+                trigger="mount"
+                fillMode="wipe"
+                wipeFrom="left"
+                fontSize={16}
+                fontWeight={500}
+                letterSpacing={1.92}
+                marching={false}
+                hoverRedraw
+                shadow={false}
+                fontFamily="Graphik, Helvetica, Arial, sans-serif"
+                reverse={false}
+              />
+            </p>
             <div>
               <h1 aria-label={gatewayContent.heading}>
-                <span className="service-gateway__heading-lead" aria-hidden="true">
-                  <StrokeText
-                    text={headingLead}
-                    className="service-gateway__stroke-heading"
-                    strokeColor="#FFFFFF"
-                    fillColor="#F8FAFC"
-                    strokeWidth={1.4}
-                    drawDuration={1.6}
-                    fillDelay={0.2}
-                    stagger={0.05}
-                    ease="power2.out"
-                    trigger="mount"
-                    fillMode="wipe"
-                    fontSize={116}
-                    fontWeight={700}
-                    fillStrokeWidth={2.4}
-                    letterSpacing={-7}
-                    reverse={false}
-                  />
-                </span>
+                <BrandSymbol className="service-gateway__heading-symbol" />
                 <span className="service-gateway__heading-accent" aria-hidden="true">
                   <TechText
-                    text={headingAccent}
+                    text={headingText}
                     fontWeight={600}
-                    fontSize={150}
                     reveal="letter"
                     dashLength={4}
                     dashGap={2}
-                    specks={15}
+                    specks={8}
                     fontFamily="'Michroma', sans-serif"
-                    color="#ffffff"
+                    color="#f8fafc"
                     accentColor="#ffffff"
                     letterSpacing={-0.05}
                     reach={200}
@@ -160,15 +159,23 @@ export default function ServiceGateway({ route }) {
                     draggable
                     sweep
                   />
-                  <span className="service-gateway__heading-accent-fallback">{headingAccent}</span>
                 </span>
               </h1>
             </div>
-            <p>{gatewayContent.introduction}</p>
+            <p>
+              <ShinyText
+                text={gatewayContent.introduction}
+                color="#cdd2c7"
+                shineColor="#ffffff"
+                speed={2.5}
+                delay={1}
+                direction="right"
+              />
+            </p>
           </motion.div>
 
           <motion.nav className="service-gateway__cards" aria-label="Choose a service area" variants={cardsReveal}>
-            {servicePaths.map((service, index) => <PathCard key={service.id} service={service} index={index} />)}
+            {servicePaths.map((service) => <PathCard key={service.id} service={service} />)}
           </motion.nav>
 
           <motion.footer className="service-gateway__footer" variants={riseReveal}>
@@ -185,7 +192,7 @@ export default function ServiceGateway({ route }) {
     <main className="service-gateway service-gateway--message">
       <motion.div className="service-gateway__shell" variants={pageReveal} {...revealProps}>
         <motion.header className="service-gateway__header" variants={riseReveal}>
-          <BrandMark descriptor={gatewayContent.brandDescriptor} label={gatewayContent.brandLabel} />
+          <BrandMark className="brand-mark--ferhan" descriptor={gatewayContent.brandDescriptor} label={gatewayContent.brandLabel} />
           <a href="/"><ChevronLeft aria-hidden="true" /> Choose another path</a>
         </motion.header>
 

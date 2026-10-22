@@ -1,0 +1,14 @@
+.design-preview-trigger { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; max-width: 100%; padding: 10px 14px; border: 1px solid #42632645; border-radius: 999px; background: #fff; color: #426326; cursor: pointer; font-size: var(--type-small, .875rem); line-height: var(--leading-ui, 1.4); white-space: normal; }
+.design-preview-trigger svg { flex-shrink: 0; }
+.design-preview-trigger:hover { border-color: #426326; }
+.design-preview-backdrop { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 24px; background: #090c09b8; backdrop-filter: blur(6px); }
+.design-preview-dialog { position: relative; width: min(100%, 520px); max-height: calc(100dvh - 48px); overflow-y: auto; border-radius: 20px; background: #fff; color: #142010; padding: clamp(28px, 5vw, 44px); box-shadow: 0 24px 80px #0004; }
+.design-preview-close { position: absolute; right: 14px; top: 14px; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: transparent; color: #142010; }
+.design-preview-close:hover { background: #aada89; }
+.design-preview-icon { color: #426326; margin-bottom: 24px; }
+.design-preview-dialog h2 { margin: 0 0 24px; max-width: 22ch; text-wrap: balance; }
+.design-preview-dialog p { color: #626b57; margin: 0 0 16px; max-width: 55ch; overflow-wrap: break-word; }
+.design-preview-done { min-height: 48px; max-width: 100%; padding: 12px 20px; margin-top: 12px; border-radius: 999px; background: #142010; color: #fff; white-space: normal; }
+.design-preview-done:hover { background: #426326; }
+.design-preview-dialog button:focus-visible, .design-preview-trigger:focus-visible { outline: 2px solid #426326; outline-offset: 4px; }
+.design-preview-trigger.project-preview-badge { background: #10170fe8; color: #aada89; border-color: #aada8940; }

@@ -9,11 +9,25 @@
     <meta name="theme-color" content="#111111" />
     <meta
       name="description"
-      content="Farhan Solution brings together design, development and consulting expertise in Perth, Western Australia. Choose the service that fits your project."
+      content="Ferhan brings together design, development and consulting expertise in Perth, Western Australia. Choose the service that fits your project."
     />
-    <title>Farhan Solution</title>
+    <title>Ferhan</title>
   </head>
   <body>
+    <!-- Static form enables Netlify to detect the matching React form at deploy time. -->
+    <form name="project-enquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input name="form-name" value="project-enquiry" />
+      <input name="bot-field" />
+      <input name="area" />
+      <input name="first-name" />
+      <input name="last-name" />
+      <input name="email" type="email" />
+      <input name="phone" />
+      <input name="project-address" />
+      <input name="service" />
+      <textarea name="message"></textarea>
+      <input name="consent" />
+    </form>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

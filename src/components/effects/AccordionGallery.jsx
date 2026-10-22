@@ -326,7 +326,7 @@ const AccordionGallery = ({
                   ref={(el) => {
                     textRefs.current[i] = el;
                   }}
-                  className="overflow-hidden text-ellipsis whitespace-nowrap text-[clamp(1rem,1.4vw,1.4rem)] font-semibold tracking-[0.01em] opacity-0 [text-shadow:0_2px_14px_rgba(0,0,0,0.55)]"
+                  className="accordion-gallery-title overflow-hidden text-ellipsis whitespace-nowrap opacity-0 [text-shadow:0_2px_14px_rgba(0,0,0,0.55)]"
                   style={{ color: textColor }}
                 >
                   {item.label}
